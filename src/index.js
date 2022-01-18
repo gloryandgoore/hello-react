@@ -3,10 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 const Button = (props) => {
-  // your code here
+  
+  return (
+    <button onClick={props.onClick}>{props.name}</button>
+
+
+  );
 };
 
 const Application = () => {
+ const [name, setName] = useState(" ");
 
   // your code here
 
@@ -16,9 +22,17 @@ const Application = () => {
   };
 
   return (
+   
+
     <main>
+  <input value={name} onChange={(event) => setName(event.target.value)} placeholder="Type your name"></input>
+    
       {/* your code here -- this entire line including the curly braces can be removed */}
-      <h1>Hello React</h1>
+      <Button name="Reset" onClick={reset}>
+      
+      </Button>
+      <h1>Hello {name}</h1>
+      
     </main>
   );
 };
